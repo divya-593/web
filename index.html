@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VHOAS - All-in-One HOA Software</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            color: #fff;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: whitesmoke;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            padding: 0px;
+        }
+
+        .logo-text::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            bottom: 10px;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: no-repeat center;
+            background-size: contain;
+        }
+
+        .logo-tagline {
+            font-size: 12px;
+            color: #F97316;
+            margin-top: 5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: #F97316;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .payment-btn {
+            border: 2px solid #F97316;
+            background: none;
+            padding: 8px 15px;
+            margin-right: 15px;
+            color: #F97316;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .payment-btn:hover {
+            background-color: #F97316;
+            color: #fff;
+        }
+
+        .login-btn,
+        .signup-btn {
+            text-decoration: none;
+            margin-left: 15px;
+            font-weight: 500;
+            border-radius: 15px;
+        }
+
+        .login-btn {
+            color: #333;
+            background-color: #F97316;
+            padding: 8px 15px;
+        }
+
+        .login-btn:hover {
+            background-color: #EA580C;
+        }
+
+        .signup-btn {
+            background-color: #F97316;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 15px;
+        }
+
+        .signup-btn:hover {
+            background-color: #EA580C;
+        }
+
+
+        /* Hero Section - Divided Left and Right with Middle Partition */
+        .hero {
+            position: relative;
+            margin-top: 100px;
+            /* Adjusted for fixed header */
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            /* Replace with your background image path */
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            justify-content: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            /* Optional overlay for readability */
+            z-index: 0;
+        }
+
+        .hero-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 5px;
+            z-index: 1;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            object-fit: contain;
+            height: auto;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 5px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+       
+
+
+        .cta-btn {
+            background-color: #fc6a03;
+            border: black;
+            color: #fff;
+            padding: 15px 30px;
+            margin-bottom: 0px;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+
+        .cta-btn:hover {
+            background-color: #EA580C;
+        }
+
+        .hero-right {
+            background-image: url('./bg2.webp');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            object-fit: cover;
+            height: auto;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 5px;
+        }
+
+        .hero-right-image {
+            width: 750px;
+            height: 500px;
+            padding: 5px;
+            display: flex;
+        }
+
+        /* Middle Partition */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background-color: #F97316;
+            /* Orange partition line */
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+
+
+        /* About Us Section Styles */
+        .about-us {
+            background-color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .about-us h2 {
+            font-size: 32px;
+            color: #F97316;
+            margin-bottom: 20px;
+        }
+
+        .about-us p {
+            font-size: 18px;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Board Members Section Styles */
+        .board-members {
+            background-color: #f9f9f9;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .board-members h2 {
+            font-size: 32px;
+            color: #F97316;
+            margin-bottom: 30px;
+        }
+
+        .members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .member {
+            text-align: center;
+        }
+
+        .member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #F97316;
+        }
+
+        .member h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .member p {
+            font-size: 16px;
+            color: #F97316;
+        }
+
+        /* Upcoming Events Section Styles */
+        .upcoming-events {
+            background-color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .upcoming-events h2 {
+            font-size: 32px;
+            color: #F97316;
+            margin-bottom: 30px;
+        }
+
+        .events {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .event {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .event h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .event p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        /* Pay Bills Section Styles */
+        .pay-bills {
+            background-color: #f9f9f9;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .pay-bills h2 {
+            font-size: 32px;
+            color: #F97316;
+            margin-bottom: 20px;
+        }
+
+        .pay-bills p {
+            font-size: 18px;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .pay-btn {
+            background-color: #F97316;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .pay-btn:hover {
+            background-color: #EA580C;
+        }
+
+        /* Quotation Section Styles */
+        .quotation {
+            background-color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .quote-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        blockquote {
+            font-size: 24px;
+            font-style: italic;
+            color: #333;
+            margin-bottom: 20px;
+            border-left: 5px solid #F97316;
+            padding-left: 20px;
+        }
+
+        .quote-author {
+            font-size: 18px;
+            color: #F97316;
+            font-weight: 500;
+        }
+
+        /* Features Section Styles */
+        .features {
+            background-color: #fff;
+            padding: 50px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .feature h3 {
+            font-size: 20px;
+            color: #F97316;
+            margin-bottom: 15px;
+        }
+
+        .feature p {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #FFEDD5;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer h2 {
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <span class="logo-text"></span>
+            <img src="./logo.png" height="70px" width="90px">
+            <div class="logo-tagline"></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Solutions</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Why VHOAS</a></li>
+                <li><a href="#">Resources</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="payment-btn">Make a Payment</button>
+            <a href="#" class="login-btn">Log In</a>
+            <a href="#" class="signup-btn">Sign Up</a>
+        </div>
+    </header>
+
+    <!-- Hero Section Divided Left and Right -->
+    <section class="hero">
+        <div class="hero-right">
+            <div class="hero-content">
+                <h1>The All-in-One VHOAS Software to Manage Your Community 100% Online</h1>
+                <button class="cta-btn">Start your 30-day free trial</button>
+            </div>
+        </div>
+        <div class="hero-left">
+            <img src="./dashboard.png" class="hero-right-image" alt="Right Side Image">
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us">
+        <h2>About Us</h2>
+        <p>At VHOAS, we are dedicated to simplifying property management for homeowners associations. Our all-in-one
+            software solution helps communities thrive by automating tasks, improving communication, and providing
+            real-time insights into finances and operations. Join us in building stronger, more connected communities!
+        </p>
+    </section>
+
+    <!-- Board Members Section -->
+    <section class="board-members">
+        <h2>Our Board Members</h2>
+        <div class="members">
+            <div class="member">
+                <img src="./mem1.jpeg" alt="Member 1">
+                <h3>John Smith</h3>
+                <p>SUPER ADMIN</p>
+            </div>
+            <div class="member">
+                <img src="./mem2.jpeg" alt="Member 2">
+                <h3>Emily Johnson</h3>
+                <p>MANAGER</p>
+            </div>
+            <div class="member">
+                <img src="./mem3.jpeg" alt="Member 3">
+                <h3>Michael Brown</h3>
+                <p>HOA PRESIDENT</p>
+            </div>
+            <div class="member">
+                <img src="./mem4.jpeg" alt="Member 4">
+                <h3>Sarah Davis</h3>
+                <p>HOA ADMIN</p>
+            </div>
+            <div class="member">
+                <img src="./mem5.jpg" alt="Member 5">
+                <h3>Sarah Davis</h3>
+                <p>SALES PERSON</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section class="upcoming-events">
+        <h2>Upcoming Events</h2>
+        <div class="events">
+            <div class="event">
+                <h3>Annual Community Meeting</h3>
+                <p><strong>Date:</strong> April 1, 2025</p>
+                <p><strong>Time:</strong> 6:00 PM</p>
+                <p><strong>Location:</strong> Community Center</p>
+            </div>
+            <div class="event">
+                <h3>Spring Clean-Up Day</h3>
+                <p><strong>Date:</strong> April 10, 2025</p>
+                <p><strong>Time:</strong> 9:00 AM</p>
+                <p><strong>Location:</strong> Main Park</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pay Bills Section -->
+    <section class="pay-bills">
+        <h2>Pay Bills</h2>
+        <p>Pay your HOA dues, fees, and fines securely online. Choose from multiple payment options including ACH,
+            credit/debit cards, or checks.</p>
+        <button class="pay-btn">Pay Now</button>
+    </section>
+
+    <!-- Quotation Section -->
+    <section class="quotation">
+        <div class="quote-content">
+            <blockquote>
+                "VHOAS has transformed the way we manage our community. The automation features save us countless hours
+                every week, allowing us to focus on what truly matters—building a better community for our residents."
+            </blockquote>
+            <p class="quote-author">— Michael Brown, HOA President</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature">
+            <h3>Easy Homeowner Invoicing</h3>
+            <p>Simplify invoicing with automated billing, dues, fees, and fines. Homeowners can pay with ACH,
+                credit/debit cards,
+                or checks. VHOAS automatically tracks payments and sends reminders for overdue invoices.</p>
+        </div>
+        <div class="feature">
+            <h3>Real-Time, Accurate Accounting</h3>
+            <p>Provides a comprehensive suite of tools, including accounting, violations, work orders, and communication
+                management.
+                Its cloud-based system ensures real-time updates and accessibility from any device.</p>
+        </div>
+        <div class="feature">
+            <h3>Handle Maintenance, Architectural & General Requests</h3>
+            <p>Streamline requests with an intuitive portal. Residents can submit maintenance, architectural, or general
+                requests, and
+                board members can review and approve them efficiently.</p>
+        </div>
+        <div class="feature">
+            <h3>Free & Unlimited Texts, Emails & Phone Calls</h3>
+            <p>Communicate effortlessly with residents using free and unlimited texts, emails, and phone calls. Keep
+                everyone informed
+                about events, updates, and emergencies.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <h2>Save Hours Every Week Through Automation</h2>
+    </footer>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'927c71882e3169f3',t:'MTc0MzIyMDY1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
